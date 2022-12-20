@@ -1,0 +1,11 @@
+\beamer@sectionintoc {1}{背景介绍和研究现状}{3}{0}{1}
+\beamer@sectionintoc {2}{带区组效应重截尾区间数据的统计分析}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{构建模型}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{统计推断}{6}{0}{2}
+\beamer@subsubsectionintoc {2}{2}{1}{二阶段方法}{7}{0}{2}
+\beamer@subsubsectionintoc {2}{2}{2}{区间估计}{7}{0}{2}
+\beamer@subsectionintoc {2}{3}{数值模拟}{8}{0}{2}
+\beamer@sectionintoc {3}{序加实验下带区组效应寿命数据的统计分析}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{背景与动机}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{构建模型}{11}{0}{3}
+\beamer@subsectionintoc {3}{3}{统计推断}{12}{0}{3}

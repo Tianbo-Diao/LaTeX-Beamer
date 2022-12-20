@@ -1,0 +1,125 @@
+\documentclass{beamer}
+\usepackage{ctex, hyperref}
+\usepackage{fontenc}
+
+% other packages
+\usepackage{latexsym,amsmath,xcolor,booktabs,calligra}
+\usepackage{graphicx,pstricks,listings,stackengine}
+\usepackage{multirow, multicol}
+\author{庄闪闪}
+\title{硕士学位论文答辩}
+\subtitle{xxx统计分析}
+\institute{xxx学院}
+\date{2021年12月06日}
+\usepackage{WZU}
+
+% defs
+\def\cmd#1{\texttt{\color{red}\footnotesize $\backslash$#1}}
+\def\env#1{\texttt{\color{blue}\footnotesize #1}}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{halfgray}{gray}{0.55}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\bfseries\color{deepblue},
+    emphstyle=\ttfamily\color{deepred},    % Custom highlighting style
+    stringstyle=\color{deepgreen},
+    numbers=left,
+    numberstyle=\small\color{halfgray},
+    rulesepcolor=\color{red!20!green!20!blue!20},
+    frame=shadowbox,
+}
+
+
+\begin{document}
+
+\kaishu
+\begin{frame}
+    \titlepage
+    \begin{figure}[htpb]
+        \begin{center}
+            \includegraphics[width=0.2\linewidth]{pic/wzu_logo.png}
+        \end{center}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+\end{frame}
+
+
+\section{背景介绍和研究现状}
+
+
+
+
+
+
+
+\section{带区组效应重截尾区间数据的统计分析}
+
+
+
+\subsection{构建模型}
+
+
+\subsection{统计推断}
+
+\subsubsection{二阶段方法}
+
+
+\subsubsection{区间估计}
+
+\begin{frame}{区间估计}
+\begin{enumerate}
+	\item \textbf{传统自助法}
+	
+	\textbf{缺点}xxx
+	
+	\item \textbf{分数随机加权自助法}
+	
+	\textbf{优点}：xxxx
+\end{enumerate}
+\end{frame}	
+
+
+
+
+\subsection{数值模拟}
+
+
+
+
+
+\section{序加实验下带区组效应寿命数据的统计分析}
+
+\subsection{背景与动机}
+
+
+\subsection{构建模型}
+
+
+
+\subsection{统计推断}
+
+
+
+
+\section*{参考文献}
+
+\begin{frame}[allowframebreaks]{参考文献}
+    \bibliography{ref}
+    %\bibliographystyle{alpha}
+    % 如果参考文献太多的话，可以像下面这样调整字体：
+     \tiny\bibliographystyle{alpha}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        {\Huge\calligra Thanks!}
+    \end{center}
+\end{frame}
+
+\end{document}

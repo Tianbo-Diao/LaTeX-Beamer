@@ -1,0 +1,37 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{XGH{\etalchar{+}}20}
+
+\bibitem[FV10]{Vining2010}
+L.J. Freeman and G.G. Vining.
+\newblock Reliability data analysis for life test experiments with subsampling.
+\newblock {\em Journal of Quality Technology}, 42(3):233--241, 2010.
+
+\bibitem[ME98]{Meeker1998}
+William~Q Meeker and Luis~A Escobar.
+\newblock {\em Statistical methods for reliability data}.
+\newblock John Wiley \& Sons, 1998.
+
+\bibitem[Nel90]{Nelso1990}
+W.~Nelson.
+\newblock Accelerated testing: Statistical models, test plans, and data
+  analysis.
+\newblock {\em Technometrics}, 33(2):236--238, 1990.
+
+\bibitem[SR17]{Seo2017}
+K.~Seo and P.~Rong.
+\newblock Data analysis of step-stress accelerated life tests with
+  heterogeneous group effects.
+\newblock {\em Iise Transactions}, 49(9):885--898, 2017.
+
+\bibitem[Wan20]{Wang2020}
+J.~Wang.
+\newblock Data analysis of step-stress accelerated life test with random group
+  effects under weibull distribution.
+\newblock {\em Mathematical Problems in Engineering}, 2020(3):1--11, 2020.
+
+\bibitem[XGH{\etalchar{+}}20]{Meeker2018}
+Li~Xu, Chris Gotwalt, Yili Hong, Caleb~B. King, and William~Q. Meeker.
+\newblock Applications of the fractional-random-weight bootstrap.
+\newblock {\em The American Statian}, pages 1--29, 2020.
+
+\end{thebibliography}
