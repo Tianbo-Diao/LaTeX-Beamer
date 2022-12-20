@@ -1,0 +1,189 @@
+\documentclass{beamer}
+% 使用说明：https://www.zhihu.com/question/29676847
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb, amsfonts, latexsym, amsthm, amsmath, framed}
+\usepackage{esvect}
+\usepackage{parskip}
+
+\usepackage{amsmath,amssymb,framed}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=magenta}
+
+\usepackage{xcolor}
+\usepackage{ctex} %可使用中文
+\setsansfont{Times New Roman}  %设置字体
+
+\usepackage{natbib}
+
+
+\newcommand{\ba}{\backslash}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\rank}{\text{rank}}
+
+\newcounter{mytheorem}[section] 
+\def\themytheorem{\thesection.\arabic{mytheorem}}
+
+\definecolor{myteal}{cmyk}{0.5,0,0.15,0}
+\usecolortheme[named=myteal]{structure}
+
+\definecolor{my-yellow}{cmyk}{0,0.2,0.7,0,1.00}
+\definecolor{my-blue}{cmyk}{0.80, 0.13, 0.14, 0.04, 1.00}
+\definecolor{my-green}{cmyk}{0.4,0,0.4,0,1.00}
+
+
+
+\tcbset{
+defstyle/.style={fonttitle=\bfseries\upshape, colback=my-yellow!5,colframe=my-yellow!80!black},
+thmstyle/.style={fonttitle=\bfseries\upshape, 
+colback=my-blue!5,colframe=my-blue!80!black},
+corstyle/.style={fonttitle=\bfseries\upshape, colback=my-green!5,colframe=my-green!80!black},
+}
+
+\newtcbtheorem{defi}{Definition}{defstyle}{mytheorem}
+\newtcbtheorem{theo}{Theorem}{thmstyle}{mytheorem}
+\newtcbtheorem{coro}{Corollary}{corstyle}{mytheorem}
+\newtcbtheorem{exam}{Example}{corstyle}{mytheorem}
+
+\usetheme{Madrid}
+
+
+
+\title{Parallel and Distributed Computing in Statistics}
+\subtitle{eigenspaces and representation decomposition for $\mathfrak{sl}_3$}
+\date{\today}
+\author{刁天博}
+\institute[CCNU]{
+	School of Mathematics and Statistics\\
+	Central China Normal University}
+
+
+
+\begin{document}
+	
+\begin{frame}
+\titlepage
+\end{frame}   %生成标题页
+
+\begin{frame}{Table of contents}
+\tableofcontents
+\end{frame}	             %生成目录页
+
+
+\section{first}
+
+\begin{frame}{Lie algebra}
+\begin{exam}{$\mathfrak{sl}_3(\R)$}{}
+$\mathfrak{sl}_{3}$ is a vector space of $3 \times 3$ matrices with trace 0,in other words:  \[
+\mathfrak{sl}_{3} = \left\{ \begin{bmatrix} a & c & d \\
+	e & -a+b & f \\ g & h & -b\end{bmatrix} \mid a,b,c,d,e,f,g,h \in \R \right\} 
+		\] equppied with $[A,B] = AB - BA$
+\end{exam}
+\href{https://angms.science/index.html}{Andersen Ang (个人主页)}
+\end{frame}
+
+
+\addtocounter{mytheorem}{-1}
+\begin{frame}{Lie algebra}
+\begin{exam}{$\mathfrak{sl}_3(\R)$}{}
+	$\mathfrak{sl}_{3}$ is a set of $3 \times 3$ matrices with trace 0, in other words:  \[
+		\mathfrak{sl}_{3}(\R) = \left\{ \begin{bmatrix} a & c & d \\
+		e & -a+b & f \\ g & h & -b\end{bmatrix} \mid a,b,c,d,e,f,g,h \in \R \right\} 
+	\] 
+\tcblower
+the basis is: \[
+	\mathcal{B}_{\mathfrak{sl}_{3}} = \left\{ H_1 = \begin{bmatrix} 1 & 0 &0 \\ 0 & -1 & 0 \\ 0 &0 &0 \end{bmatrix}, H_2 = \begin{bmatrix} 0 &0 &0 \\ 0 &1&0 \\ 0&0&-1 \end{bmatrix}   \right\} \bigcup \left\{ E_{i,j} \mid i \neq j\right\}. 
+\] $E_{i,j}$ is a matrix where ${E_{i,j}}_{ij} = 1$ and other places are $0$.
+\end{exam}
+\end{frame}
+
+
+\addtocounter{mytheorem}{-1}
+\begin{frame}{some linear algebra}
+\begin{defi}{subspace $\mathfrak{h} \subseteq \mathfrak{sl}_3(\R)$}{}
+		Let  $\mathfrak{h}$ be the two-dimensional subspace of all diagonal matrices, namely:  \[
+			\mathfrak{h} = \text{span}{\left\{ H_1 = \begin{bmatrix} 1 & 0 &0 \\ 0 & -1 & 0 \\ 0 &0 &0 \end{bmatrix}, H_2 = \begin{bmatrix} 0 &0 &0 \\ 0 &1&0 \\ 0&0&-1 \end{bmatrix}   \right\} }
+		\] 
+\end{defi}
+What does it mean to be an eigenspace for $\mathfrak{h}$?
+
+For all $H \in \mathfrak{h}$, an eigenspace $\mathfrak{g}_{\lambda}$ has all $M \in \mathfrak{sl}_{3}(\R)$ s.t. $ad_{H}(M) = [H,M] = HM-MH = \lambda M?$
+\end{frame}
+
+
+\begin{frame}{some linear algebra}
+Let's pick an arbitrary $H \in \mathfrak{h}$ and $M \in \mathfrak{sl}_3(\R)$, namely: \[
+		H = \def\a{\color{red}a} \begin{bmatrix} \a_1 & 0 & 0 \\ 0 & \a_2 &0 \\ 0 &0 &\a_3 \end{bmatrix}, M = \def\m{\color{blue}m} \begin{bmatrix} \m_{11} & \m_{12} & \m_{13} \\ \m_{21} & \m_{22} & \m_{23} \\ \m_{31} & \m_{32} & \m_{33} \end{bmatrix} 
+	\]
+Let's see the result under adjoint action, i.e. $ad_{H}(M) = [H,M] = HM-MH = ?$
+	\begin{align*}
+		[H,M] &= \def\a{\color{red}a} \def\m{\color{blue}m} \begin{bmatrix} (\a_1-\a_1)\m_{11} & (\a_1-\a_2)\m_{12} & (\a_1-\a_3)\m_{13} \\ (\a_2-\a_1)\m_{21} & (\a_2-\a_2)\m_{22} & (\a_2-\a_3)\m_{23} \\ (\a_3-\a_1)\m_{31} & (\a_3-\a_2)\m_{32} & (\a_3-\a_3)\m_{33} \end{bmatrix} \\
+		      &=  \def\a{\color{red}a} \def\m{\color{blue}m} \begin{bmatrix} 0 \cdot \m_{11} & (\a_1-\a_2)\m_{12} & (\a_1-\a_3)\m_{13} \\ (\a_2-\a_1)\m_{21} & 0 \cdot \m_{22} & (\a_2-\a_3)\m_{23} \\ (\a_3-\a_1)\m_{31} & (\a_3-\a_2)\m_{32} & 0 \cdot \m_{33} \end{bmatrix} 
+	\end{align*}
+\end{frame}
+
+
+\begin{frame}{linear functional}	
+Since we are asking for  eigenspaces of $\mathfrak{h}$, we need a way to get  $a_i-a_j$ from any  $H \in \mathfrak{h}$ for us, thus we could define a linear functional:
+
+\begin{defi}{$L_i$}{}
+$L_i$ is a linear functional s.t. \[
+		L_i \begin{bmatrix} a_1 & 0 &0 \\ 0 & a_2 & 0 \\ 0 &0 &a_3 \end{bmatrix} = a_i 
+	\] it satisfies the requirement of a linear functional: 
+
+	$L_i(A+B) = L_i(A) + L_i(B), L_i(aA) = aL_i(A)$.
+\end{defi}
+\end{frame}
+
+
+
+\section{representation}
+
+\begin{frame}{why?}
+Notice that for the adjoint representation of $\mathfrak{sl}_3(\R)$, we have the following decomposition:  \[
+		\mathfrak{sl}_3(\R) = \mathfrak{h} \oplus \left( \oplus \mathfrak{g}_\alpha \right) 
+	\] where $\alpha$ ranges over $\mathfrak{h}^*$ and $\mathfrak{g}_{\alpha}$ is the eigenspace w.r.t $\alpha$
+
+this is a special case of a general statement:
+\begin{theo}{}{}
+For any semisimple Lie algebra $\mathfrak{g}$ (it is a direct sum of simple Lie algebras (non-abelian Lie algebras without any non-zero proper ideals), we could find an abelian subalgebra(closed under bracket)  $\mathfrak{h} \subset \mathfrak{g}$ s.t. the action of $\mathfrak{h}$ on any representation $V$ could be written as a direct sum decomposition of $V$ into eigenspaces  $V_{\alpha}$ for $\mathfrak{h}$.
+\end{theo}
+\end{frame}
+
+
+\begin{frame}{graph of eigenspaces}
+\begin{center} \includegraphics[scale=.3]{eigenvalue.jpg}\end{center}	
+\end{frame}
+
+
+\begin{frame}{jumping around ..}
+Given any $X \in  \mathfrak{g}_{\alpha}$ and $Y \in \mathfrak{g}_{\beta}$, where would $ad_{X}$ sends $Y$ to? i.e.  $ad_{X}(Y) = [X,Y] = ?$
+
+$\mathfrak{h}$ could help us, namely:
+		\[[H,[X,Y]] = ((\alpha+\beta)(H)) \cdot [X,Y] \]
+
+in other words, $ad_{X}(Y)$ is an eigenvctor for $\mathfrak{h}$ with eigenvalue  $\alpha +\beta$.  \[
+			ad_{\mathfrak{g}_{\alpha}}: \mathfrak{g}_{\beta} \to \mathfrak{g}_{\alpha+\beta}
+		\] 
+\end{frame}
+
+
+\begin{frame}{Bibliography}
+\bibliographystyle{plainnat}
+\bibliography{ref}
+\end{frame}
+
+\end{document}
